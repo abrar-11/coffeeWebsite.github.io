@@ -1,0 +1,444 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600&display=swap");
+@import url("./utilities.css");
+
+/* *,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} */
+
+body {
+    font-family: "Open Sans", sans-serif;
+}
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+    scroll-padding: 7rem;
+}
+:root {
+    --primary-clr: #b58836;
+    --brown: #1c0903;
+    --heading-clr: #3b3b3b;
+    --text-clr: #918c88;
+    --text-white: rgb(255, 255, 255);
+
+    --heading-lg-font: 3rem;
+    --heading-md-font: 2rem;
+    --heading-sm-font: 1.3rem;
+    --p-font: 1rem;
+
+    --btn-width: 9rem;
+}
+h1,
+h2,
+h3,
+h4 {
+    /* color: var(--heading-clr); */
+    color: var(--brown);
+    /* font-family: "Open Sans", sans-serif; */
+    /* font-family: "Montserrat", sans-serif; */
+}
+header {
+    padding: 0.8rem 0;
+    background-color: var(--brown);
+    width: 100%;
+    color: var(--text-white);
+    position: sticky;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+}
+.menu__items a {
+    color: var(--text-white);
+    text-transform: capitalize;
+    font-size: 0.9rem;
+    position: relative;
+}
+.menu__items a::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    height: 1px;
+    background-color: var(--primary-clr);
+    left: 0;
+    bottom: -20%;
+}
+.menu__items a.active::after {
+    opacity: 1;
+}
+h1 {
+    font-size: var(--heading-lg-font);
+    font-weight: 600;
+}
+h2 {
+    font-size: var(--heading-md-font);
+    font-size: 500;
+}
+h3 {
+    font-size: var(--heading-sm-font);
+    font-weight: 400;
+}
+p {
+    font-size: var(--p-font);
+    color: var(--text-clr);
+}
+.logo {
+    color: var(--text-white);
+}
+#menu {
+    transition: 3s all ease-in-out;
+}
+.menu__items {
+    padding-left: 1.6rem;
+}
+.menu__items a {
+    font-size: var(--p-font);
+    opacity: 0.8;
+    font-weight: 300;
+}
+.container {
+    max-width: 1140px;
+
+    margin: auto;
+}
+.hero {
+    max-width: 100vw;
+    height: 100vh;
+    background: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.4),
+            rgba(0, 0, 0, 0.7)
+        ),
+        url("./images/hero.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+
+    color: var(--text-white);
+}
+.hero__title {
+    text-transform: capitalize;
+    letter-spacing: 3px;
+    color: var(--text-white);
+}
+.hero__content h3 {
+    font-weight: 400;
+    color: var(--text-white);
+}
+
+button {
+    width: var(--btn-width);
+    padding: 0.8rem 0;
+    border-radius: 60px;
+    font-size: var(--p-font);
+    margin: 1rem 0;
+    cursor: pointer;
+    border: 1px solid white;
+    transition: 0.3s all ease-in;
+}
+
+.btn_outline {
+    border-color: var(--text-white);
+    background-color: transparent;
+    color: var(--text-white);
+    box-shadow: 0px 0px 2px 8ox rgba(0, 0, 0, 0.1);
+}
+.btn_outline:hover {
+    background-color: var(--text-white);
+    color: var(--brown);
+}
+#humberger {
+    display: none;
+}
+.serve {
+    min-height: 100vh;
+    margin: 3rem auto;
+}
+
+.serve__cards {
+    margin: 4rem 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+    grid-template-rows: repeat(minmax(3, auto), 1fr);
+    gap: 1.4rem;
+}
+.moments {
+    margin: 4.5rem auto;
+    min-height: 70vh;
+}
+.moments__wrapper {
+    width: 80%;
+    margin: 3rem auto;
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-rows: repeat(3, 1fr);
+}
+.moments__card {
+    position: relative;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: 0.3s all ease;
+}
+.moments__img {
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s all ease;
+}
+
+.moments__card::after {
+    width: 100%;
+    height: 40%;
+    background-color: rgba(255, 245, 238, 0.863);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--brown);
+    font-weight: 500;
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    transition: 0.5s all ease;
+}
+.moments__card:hover::after {
+    bottom: 0;
+}
+.moments__card:hover .moments__img {
+    opacity: 0.9;
+}
+.moments__card:nth-of-type(1)::after {
+    content: "Coffee is all about choice. ";
+}
+.moments__card:nth-of-type(2)::after {
+    content: "Wake up your taste buds. ";
+}
+.moments__card:nth-of-type(3)::after {
+    content: "Power up with coffee. ";
+}
+.moments__card:nth-of-type(4)::after {
+    content: " Make your day smarter with coffee!";
+}
+.moments__card:nth-of-type(5)::after {
+    content: " Taste the freshness!";
+}
+.moments__card:nth-of-type(6)::after {
+    content: "Take a break, drink some coffee. ";
+}
+
+/* ==============Buy Coffee==================== */
+
+.buyCoffee__wrapper {
+    width: 50%;
+}
+.buyCoffee__title {
+    color: var(--text-white);
+}
+.buyCoffee__subTitle {
+    line-height: 0.7;
+    color: var(--text-clr);
+}
+.buyCoffee__desc {
+    color: var(--text-white);
+    opacity: 0.8;
+    font-weight: 300;
+    padding: 0.4rem 0 0.3rem 0;
+}
+.buyCoffee {
+    background: linear-gradient(
+            to right,
+            rgba(69, 53, 78, 0.2),
+            rgba(44, 16, 16, 0.381)
+        ),
+        url("./images/coffee 3.jpg");
+    background-repeat: no-repeat;
+
+    background-size: cover;
+
+    height: 80vh;
+    max-height: 100vh;
+    margin-bottom: 2rem;
+}
+
+/* -======================Footer======================== */
+footer {
+    background-color: var(--brown);
+}
+footer h3 {
+    color: var(--text-white);
+}
+
+footer .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 1.4rem;
+    padding: 3rem 0;
+}
+
+footer p {
+    font-weight: 300;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+.footer_input {
+    height: 2.3rem;
+    padding: 0;
+
+    margin-top: 0.8rem;
+    width: 70%;
+    overflow: hidden;
+    background-color: var(--text-white);
+}
+
+.footer__icons__wrapper i {
+    opacity: 0.8;
+    color: var(--text-white);
+    font-size: 1.4rem;
+    padding-right: 0.4rem;
+}
+.footer__icons__wrapper i:hover {
+    cursor: pointer;
+    transition: 0.3s all ease-out;
+    transform: translateY(-5px);
+    opacity: 1;
+}
+.footer_input input {
+    border: none;
+    outline: none;
+    padding: 0.3rem;
+    width: 85%;
+}
+.send {
+    width: 15%;
+    background-color: var(--primary-clr);
+    /* padding: 0 0.8rem; */
+    color: var(--text-white);
+    height: 105%;
+    transform: scale(1.1);
+}
+/* ============For Mobile========== */
+
+@media screen and (max-width: 490px) {
+    :root {
+        --heading-lg-font: 2.3rem;
+        --heading-md-font: 1.45rem;
+        --heading-sm-font: 1.2rem;
+        --p-font: 1rem;
+        --btn-width: 7rem;
+    }
+    html {
+        scroll-padding: 3.7rem;
+    }
+
+    .container {
+        width: 92%;
+    }
+    button {
+        min-width: 5rem;
+        padding: 0.7rem 0;
+    }
+    header .container {
+        padding: 0.3rem 0;
+    }
+    .hero {
+        padding: 3rem;
+    }
+    #humberger {
+        display: block;
+    }
+    /* #menu {
+        transform: translateX(110%);
+        display: none;
+        transition: all 2s ease;
+    }
+
+    #menu.active {
+        width: 100%;
+        height: 100vh;
+        background-color: var(--brown);
+        transform: translateX(0%);
+        display: block;
+    } */
+    #menu {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100vh;
+        z-index: -1;
+        background-color: var(--brown);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.5s all ease;
+    }
+    #menu.active {
+        left: 0%;
+    }
+    #menu ul {
+        min-height: 30vh;
+        flex-direction: column;
+    }
+    .hero__title {
+        padding: 0.8rem 0;
+    }
+
+    .menu__items {
+        padding: 1rem 0;
+    }
+    .menu__items a {
+        font-size: 1.3rem;
+    }
+    .serve__cards {
+        grid-template-columns: 1fr;
+        margin: 1.4rem 0;
+    }
+    .serve__desc {
+        padding: 0.4rem 1.3rem;
+    }
+    .moments__card::after {
+        bottom: 0;
+        height: 30%;
+    }
+    .buyCoffee__wrapper {
+        width: 100%;
+    }
+    .buyCoffee__title {
+        font-size: 2.3rem;
+        padding: 0.4rem 0;
+    }
+}
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+
+@media (min-width: 1281px) {
+    /* CSS */
+    /* .container {
+        width: 1220px;
+    } */
+}
+
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+    /* CSS */
+}
+
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    /* CSS */
+}
